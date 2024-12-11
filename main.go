@@ -9,7 +9,6 @@ import (
 	"time"
 
 	amqp "github.com/rabbitmq/amqp091-go"
-	"golang.org/x/exp/rand"
 )
 
 type EventType string
@@ -82,28 +81,31 @@ func generateSignupEvent() *MessageTriggerEvent {
 
 	events := []*MessageTriggerEvent{
 		{
-			BrandId:   123,
-			Recipient: "911234567890",
+			BrandId:   104,
+			Recipient: "916366031268",
 			UserId:    123456,
 			CustomData: map[string]string{
-				"firstname": "John",
-				"surname":   "Kented",
-				"reward":    "300",
+				"firstName":         "Sahil",
+				"orderId":           "12",
+				"creditOrderPoints": "12847",
+				"redemptionRate":    "300",
+				"remainingDays":     "45",
 			},
-			EventType: "signup",
+			EventType: "orderplacement",
 		},
 		{
-			BrandId:   123,
-			Recipient: "911234567890",
+			BrandId:   234,
+			Recipient: "91",
 			UserId:    123456,
 			CustomData: map[string]string{
-				"firstname": "John",
-				"surname":   "Kented",
-				"reward":    "300",
+				"discountt":           "300",
+				"orderId":             "656635",
+				"currentTier":         "VIP 5",
+				"nextTierTargetValue": "5000",
 			},
 			EventType: "orderplacement",
 		},
 	}
 
-	return events[rand.Intn(len(events))]
+	return events[0]
 }
