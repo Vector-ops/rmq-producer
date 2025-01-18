@@ -13,6 +13,11 @@ import (
 )
 
 type MessageTriggerEvent struct {
+	Pattern string `json:"pattern,omitempty"`
+	Data    Data   `json:"data,omitempty"`
+}
+
+type Data struct {
 	BrandId    int                    `json:"brandId,omitempty"`
 	Recipient  string                 `json:"recipient,omitempty"`
 	UserId     int                    `json:"userId,omitempty"`
